@@ -27,6 +27,13 @@ public class VictimModelCaller implements Caller {
 
         logger.info("Begin prediction.");
 
+        try {
+            Process ps = Runtime.getRuntime().exec(SCRIPT_TEMPLATE);
+            ps.waitFor();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         logger.info("Finish prediction.");
     }
 }

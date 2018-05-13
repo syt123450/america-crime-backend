@@ -11,13 +11,73 @@ import org.springframework.stereotype.Service;
 public class PathProperty {
 
     private static String BASE_DIR;
+    private static String CRIMINAL_DIR;
+    private static String CRIMINAL_MODEL_DIR;
+    private static String CRIMINAL_RESULT_DIR;
+    private static String VICTIM_DIR;
+    private static String VICTIM_MODEL_DIR;
+    private static String VICTIM_RESULT_DIR;
 
     @Value("${dir.base}")
     public void setBaseDir(String baseDir) {
         BASE_DIR = baseDir;
     }
 
+    @Value("${dir.criminal}")
+    public void setCriminalDir(String criminalDir) {
+        CRIMINAL_DIR = criminalDir;
+    }
+
+    @Value("${dir.criminal.model}")
+    public void setCriminalModelDir(String criminalModelDir) {
+        CRIMINAL_MODEL_DIR = criminalModelDir;
+    }
+
+    @Value("${dir.criminal.result}")
+    public void setCriminalResultDir(String criminalResultDir) {
+        CRIMINAL_RESULT_DIR = criminalResultDir;
+    }
+
+    @Value("${dir.victim}")
+    public void setVictimDir(String victimDir) {
+        VICTIM_DIR = victimDir;
+    }
+
+    @Value("${dir.victim.model}")
+    public void setVictimModelDir(String victimModelDir) {
+        VICTIM_MODEL_DIR = victimModelDir;
+    }
+
+    @Value("${dir.victim.output}")
+    public void setVictimResultDir(String victimResultDir) {
+        VICTIM_RESULT_DIR = victimResultDir;
+    }
+
     public String getBaseDir() {
         return BASE_DIR;
+    }
+
+    public String getCriminalDir() {
+        return CRIMINAL_DIR;
+    }
+
+    public String getCriminalModelDir() {
+        return CRIMINAL_MODEL_DIR;
+    }
+
+    public String getCriminalResultDir() {
+        return CRIMINAL_RESULT_DIR;
+    }
+
+    public String getVictimDir() {
+        return VICTIM_DIR;
+    }
+
+    public String getVictimModelDir() {
+        return VICTIM_MODEL_DIR;
+    }
+
+    public String getVictimResultDir() {
+        return VICTIM_RESULT_DIR;
     }
 }
