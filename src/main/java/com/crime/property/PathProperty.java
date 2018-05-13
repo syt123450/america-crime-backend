@@ -12,10 +12,10 @@ public class PathProperty {
 
     private static String BASE_DIR;
     private static String CRIMINAL_DIR;
-    private static String CRIMINAL_MODEL_DIR;
+    private static String CRIMINAL_PREDICT_DIR;
     private static String CRIMINAL_RESULT_DIR;
     private static String VICTIM_DIR;
-    private static String VICTIM_MODEL_DIR;
+    private static String VICTIM_PREDICT_DIR;
     private static String VICTIM_RESULT_DIR;
 
     @Value("${dir.base}")
@@ -28,9 +28,9 @@ public class PathProperty {
         CRIMINAL_DIR = criminalDir;
     }
 
-    @Value("${dir.criminal.model}")
+    @Value("${dir.criminal.predict}")
     public void setCriminalModelDir(String criminalModelDir) {
-        CRIMINAL_MODEL_DIR = criminalModelDir;
+        CRIMINAL_PREDICT_DIR = criminalModelDir;
     }
 
     @Value("${dir.criminal.result}")
@@ -43,9 +43,9 @@ public class PathProperty {
         VICTIM_DIR = victimDir;
     }
 
-    @Value("${dir.victim.model}")
+    @Value("${dir.victim.predict}")
     public void setVictimModelDir(String victimModelDir) {
-        VICTIM_MODEL_DIR = victimModelDir;
+        VICTIM_PREDICT_DIR = victimModelDir;
     }
 
     @Value("${dir.victim.output}")
@@ -61,8 +61,8 @@ public class PathProperty {
         return CRIMINAL_DIR;
     }
 
-    public String getCriminalModelDir() {
-        return CRIMINAL_MODEL_DIR;
+    public String getCriminalPredictDir() {
+        return CRIMINAL_PREDICT_DIR;
     }
 
     public String getCriminalResultDir() {
@@ -73,8 +73,8 @@ public class PathProperty {
         return VICTIM_DIR;
     }
 
-    public String getVictimModelDir() {
-        return VICTIM_MODEL_DIR;
+    public String getVictimPredictDir() {
+        return VICTIM_PREDICT_DIR;
     }
 
     public String getVictimResultDir() {

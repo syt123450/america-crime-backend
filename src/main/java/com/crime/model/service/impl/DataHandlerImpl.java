@@ -1,6 +1,7 @@
 package com.crime.model.service.impl;
 
 import com.crime.model.bean.ComboData;
+import com.crime.model.bean.SunBurstData;
 import com.crime.model.dao.HeatMapDao;
 import com.crime.model.domain.HeatPoint;
 import com.crime.model.service.DataHandler;
@@ -49,8 +50,9 @@ public class DataHandlerImpl implements DataHandler {
     }
 
     @Override
-    public void getSunData() {
+    public SunBurstData getSunData() {
 
+        return null;
     }
 
     @Override

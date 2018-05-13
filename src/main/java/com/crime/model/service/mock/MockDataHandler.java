@@ -1,6 +1,7 @@
 package com.crime.model.service.mock;
 
 import com.crime.model.bean.ComboData;
+import com.crime.model.bean.SunBurstData;
 import com.crime.model.domain.HeatPoint;
 import com.crime.model.service.DataHandler;
 import com.crime.model.utils.SeriesUtils;
@@ -58,8 +59,8 @@ public class MockDataHandler implements DataHandler {
     }
 
     @Override
-    public void getSunData() {
-
+    public SunBurstData getSunData() {
+        return null;
     }
 
     @Override
