@@ -1,7 +1,10 @@
 package com.crime.model.service.impl;
 
+import com.crime.model.dao.HeatMapDao;
 import com.crime.model.domain.HeatPoint;
 import com.crime.model.service.DataHandler;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -14,14 +17,34 @@ import java.util.List;
 @Service
 @Profile("dev")
 public class DataHandlerImpl implements DataHandler {
+
+    private static Logger logger = Logger.getLogger(DataHandlerImpl.class);
+
+    @Autowired
+    private HeatMapDao heatMapDao;
+
     @Override
     public List<HeatPoint> getHistoryHeatData() {
-        return null;
+
+        logger.info("Get History heat map data.");
+
+        List<HeatPoint> heatPoints = heatMapDao.getHistoryHeatPoints();
+
+        logger.info("Size of history points: " + heatPoints.size());
+
+        return heatPoints;
     }
 
     @Override
     public List<HeatPoint> getPredictionHeatData() {
-        return null;
+
+        logger.info("Get Prediction heat map data.");
+
+        List<HeatPoint> heatPoints = heatMapDao.getPredictionHeatPoints();
+
+        logger.info("Size of prediction points: " + heatPoints.size());
+
+        return heatPoints;
     }
 
     @Override
