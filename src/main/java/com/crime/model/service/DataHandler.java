@@ -1,5 +1,6 @@
 package com.crime.model.service;
 
+import com.crime.model.bean.ComboData;
 import com.crime.model.domain.HeatPoint;
 
 import java.util.List;
@@ -15,5 +16,5 @@ public interface DataHandler {
 
     void getSunData();
 
-    void getComboData();
+    ComboData getComboData();
 }

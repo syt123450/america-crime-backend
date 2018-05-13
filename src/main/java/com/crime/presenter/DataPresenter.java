@@ -1,5 +1,6 @@
 package com.crime.presenter;
 
+import com.crime.model.bean.ComboData;
 import com.crime.model.domain.HeatPoint;
 import com.crime.model.service.DataHandler;
 import com.google.gson.Gson;
@@ -64,8 +65,8 @@ public class DataPresenter {
 
         logger.info("Request for combo chart data.");
 
-        dataHandler.getComboData();
+        ComboData comboData = dataHandler.getComboData();
 
-        return gson.toJson("");
+        return gson.toJson(comboData);
     }
 }
