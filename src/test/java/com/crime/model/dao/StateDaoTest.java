@@ -1,4 +1,4 @@
-package com.crime.model.service.impl.caller;
+package com.crime.model.dao;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -10,20 +10,19 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.*;
 
 /**
- * Created by ss on 2018/5/13.
+ * Created by ss on 2018/5/14.
  */
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class VictimModelCallerTest {
+public class StateDaoTest {
 
     @Autowired
-    private VictimModelCaller victimModelCaller;
+    private StateDao stateDao;
 
     @Test
     @Ignore
-    public void test() {
-
+    public void testGetStatePosition() {
+        System.out.println(stateDao.getStatePosition("CA"));
     }
-
 }
