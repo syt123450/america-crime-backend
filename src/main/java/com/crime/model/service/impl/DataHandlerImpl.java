@@ -5,6 +5,8 @@ import com.crime.model.bean.SunBurstData;
 import com.crime.model.dao.HeatMapDao;
 import com.crime.model.domain.HeatPoint;
 import com.crime.model.service.DataHandler;
+import com.crime.model.service.impl.combiner.ComboCombiner;
+import com.crime.model.service.impl.combiner.SunBurstCombiner;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -24,6 +26,10 @@ public class DataHandlerImpl implements DataHandler {
 
     @Autowired
     private HeatMapDao heatMapDao;
+    @Autowired
+    private SunBurstCombiner sunBurstCombiner;
+    @Autowired
+    private ComboCombiner comboCombiner;
 
     @Override
     public List<HeatPoint> getHistoryHeatData() {
@@ -52,11 +58,12 @@ public class DataHandlerImpl implements DataHandler {
     @Override
     public SunBurstData getSunData() {
 
-        return null;
+        return sunBurstCombiner.construct();
     }
 
     @Override
     public ComboData getComboData() {
-        return null;
+
+        return comboCombiner.constructor();
     }
 }
