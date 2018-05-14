@@ -4,9 +4,10 @@
 
     <select id="getStatePosition" resultType="com.crime.model.domain.Position">
         SELECT
-        xx   AS lat,
-        yy   AS lng
-        FROM model_precise
+          longitude   AS lat,
+          latitude    AS lng
+        FROM state_encode
+        WHERE state = #{name}
     </select>
 
 </mapper>

@@ -4,16 +4,17 @@
 
     <select id="getHistoryHeatPoints" resultType="com.crime.model.domain.HeatPoint">
         SELECT
-        xx   AS lat,
-        yy   AS lng
-        FROM model_precise
+          latitude    AS lat,
+          longitude   AS lng
+        FROM parsedData
+        WHERE year=2014
     </select>
 
     <select id="getPredictionHeatPoints" resultType="com.crime.model.domain.HeatPoint">
         SELECT
-        xx   AS lat,
-        yy   AS lng
-        FROM model_precise
+          latitude    AS lat,
+          longitude   AS lng
+        FROM predict_task_2_3_suspect
     </select>
 
 </mapper>
