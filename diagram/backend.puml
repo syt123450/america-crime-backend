@@ -1,0 +1,23 @@
+@startuml
+
+package "Service" {
+
+Presenter -down-> [Data Handler]
+Presenter -down-> [Prediction Handler]
+
+}
+
+package "Model" {
+
+[Prediction Handler] -down-> [Model Gateway]
+[Model Gateway] -down-> [Criminal Prediction Model]
+[Model Gateway] -down-> [Victim Prediction Model]
+}
+
+database "MySql" {
+[Data Handler] -down-> [Druid Data Source]
+[Druid Data Source] -down-> [History Data]
+[Druid Data Source] -down-> [Prediction Data]
+}
+
+@enduml

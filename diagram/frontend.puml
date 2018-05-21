@@ -1,0 +1,21 @@
+@startuml
+
+controller -down-> PredictionManager
+controller -down-> StatisticManager
+
+package "Prediction" {
+
+PredictionManager -> [History Heatmap]
+PredictionManager -> [Sun Burst Chart]
+PredictionManager -> [Combo Chart]
+}
+
+package "Statistic" {
+
+StatisticManager -> [Prediction Heatmap]
+StatisticManager -> [Prediction Form]
+[Prediction Form] -down-> [Victim]
+[Prediction Form] -down-> [Criminal]
+}
+
+@enduml

@@ -3,6 +3,7 @@ package com.crime.model.service.impl.caller;
 import com.crime.model.bean.VictimsRequest;
 import com.crime.model.domain.Position;
 import com.crime.property.PathProperty;
+import com.crime.property.PythonProperty;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class VictimModelCaller {
 
-    private static final String SCRIPT_RAW = "python %s" +
+    private static final String SCRIPT_RAW = "%s %s" +
             " --task_id=1" +
             " --month=%s" +
             " --day=%s" +
@@ -26,8 +27,9 @@ public class VictimModelCaller {
     private static Logger logger = Logger.getLogger(VictimModelCaller.class);
 
     @Autowired
-    public void initTemplate(PathProperty pathProperty) {
-        SCRIPT_TEMPLATE = String.format(SCRIPT_RAW, pathProperty.getVictimPredictDir(),
+    public void initTemplate(PythonProperty pythonProperty, PathProperty pathProperty) {
+        SCRIPT_TEMPLATE = String.format(SCRIPT_RAW, pythonProperty.getPythonCommand(),
+                pathProperty.getVictimPredictDir(),
                 "%d", "%d", "%s", "%f", "%f");
     }
 

@@ -3,6 +3,7 @@ package com.crime.model.service.impl.caller;
 import com.crime.model.bean.CriminalRequest;
 import com.crime.model.domain.Position;
 import com.crime.property.PathProperty;
+import com.crime.property.PythonProperty;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CriminalModelCaller {
 
-    private static final String SCRIPT_RAW = "python %s" +
+    private static final String SCRIPT_RAW = "%s %s" +
             " --task_id=2" +
             " --month=%s" +
             " --day=%s" +
@@ -28,8 +29,9 @@ public class CriminalModelCaller {
     private static Logger logger = Logger.getLogger(CriminalModelCaller.class);
 
     @Autowired
-    public void initTemplate(PathProperty pathProperty) {
-        SCRIPT_TEMPLATE = String.format(SCRIPT_RAW, pathProperty.getCriminalPredictDir(),
+    public void initTemplate(PythonProperty pythonProperty, PathProperty pathProperty) {
+        SCRIPT_TEMPLATE = String.format(SCRIPT_RAW, pythonProperty.getPythonCommand(),
+                pathProperty.getCriminalPredictDir(),
                 "%d", "%d", "%s", "%f", "%f", "%d", "%d");
     }
 
@@ -44,6 +46,8 @@ public class CriminalModelCaller {
                 position.getLat(),
                 criminalRequest.getKilled(),
                 criminalRequest.getInjured());
+
+        logger.info(predictScript);
 
         try {
             Process ps = Runtime.getRuntime().exec(predictScript);
